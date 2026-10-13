@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.lab41.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleNewCalculation" text="Новый расчет" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Выход" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="Об авторе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefWidth="320.0" spacing="12.0">
+                    <children>
+                        <Label text="Параметры сотрудника">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="typeComboBox" onAction="#handleTypeSelection" prefWidth="320.0" promptText="Выберите тип сотрудника" />
+                        <TextField fx:id="nameField" promptText="ФИО сотрудника" />
+                        <TextField fx:id="salaryField" promptText="Оклад (руб.)" />
+                        <TextField fx:id="expField" promptText="Стаж работы (лет)" />
+
+                        <!-- Панель полей для Менеджера -->
+                        <VBox fx:id="managerBox" spacing="12.0" visible="false" managed="false">
+                            <children>
+                                <TextField fx:id="planField" promptText="Плановый показатель продаж" />
+                                <TextField fx:id="factField" promptText="Фактический показатель продаж" />
+                            </children>
+                        </VBox>
+
+                        <!-- Панель полей для Разработчика -->
+                        <VBox fx:id="developerBox" spacing="12.0" visible="false" managed="false">
+                            <children>
+                                <ComboBox fx:id="levelComboBox" prefWidth="320.0" promptText="Уровень (Junior, Middle, Senior)" />
+                                <TextField fx:id="projectsField" promptText="Количество завершенных проектов" />
+                            </children>
+                        </VBox>
+
+                        <Button mnemonicParsing="false" onAction="#performCalculation" prefWidth="320.0" text="Рассчитать премию" />
+                    </children>
+                </VBox>
+                <VBox prefWidth="340.0" spacing="12.0">
+                    <children>
+                        <Label text="Результаты расчета">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextArea fx:id="resultArea" editable="false" prefHeight="380.0" prefWidth="340.0" wrapText="true" />
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </HBox>
+    </center>
+</BorderPane>

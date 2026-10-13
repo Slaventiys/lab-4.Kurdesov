@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.lab4.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleNewCalculation" text="Новый расчет" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Сохранить" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Выход" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="О программе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Расчет площади боковой поверхности призмы">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label text="В основании — равносторонний треугольник" textFill="#666666" />
+                <TextField fx:id="sideAField" maxWidth="250.0" promptText="Сторона основания (a)" />
+                <TextField fx:id="heightHField" maxWidth="250.0" promptText="Высота призмы (h)" />
+                <Button mnemonicParsing="false" onAction="#performCalculation" prefWidth="250.0" text="Рассчитать площадь" />
+                <Label fx:id="resultLabel" text="Результат S(бок): ">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>
